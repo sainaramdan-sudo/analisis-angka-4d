@@ -1,8 +1,89 @@
 {
   "updated_at": null,
-  "source_type": "third-party archives; not HKJC official",
-  "status": "awaiting-first-run",
+  "source": "https://togel-hongkong.org/",
+  "source_type": "Third-party website; not verified as an official lottery source",
+  "status": "awaiting-first-automatic-run",
   "errors": {},
-  "conflicts": [],
-  "results": []
+  "results": [
+    {
+      "date": "2026-10-25",
+      "day": "MINGGU",
+      "hk": "5480",
+      "sgp": "1221",
+      "sdy": "6241",
+      "source": "user-provided sample; pending automated source validation"
+    },
+    {
+      "date": "2026-10-24",
+      "day": "SABTU",
+      "hk": "1269",
+      "sgp": "3837",
+      "sdy": "7606",
+      "source": "user-provided sample; pending automated source validation"
+    },
+    {
+      "date": "2026-10-23",
+      "day": "JUMAT",
+      "hk": "3581",
+      "sgp": "-",
+      "sdy": "7069",
+      "source": "user-provided sample; pending automated source validation"
+    },
+    {
+      "date": "2026-10-22",
+      "day": "KAMIS",
+      "hk": "5096",
+      "sgp": "2718",
+      "sdy": "0031",
+      "source": "user-provided sample; pending automated source validation"
+    },
+    {
+      "date": "2026-10-21",
+      "day": "RABU",
+      "hk": "8280",
+      "sgp": "8455",
+      "sdy": "3426",
+      "source": "user-provided sample; pending automated source validation"
+    },
+    {
+      "date": "2026-10-20",
+      "day": "SELASA",
+      "hk": "3778",
+      "sgp": "-",
+      "sdy": "6274",
+      "source": "user-provided sample; pending automated source validation"
+    },
+    {
+      "date": "2026-10-19",
+      "day": "SENIN",
+      "hk": "8385",
+      "sgp": "4799",
+      "sdy": "6468",
+      "source": "user-provided sample; pending automated source validation"
+    },
+    {
+      "date": "2026-10-18",
+      "day": "MINGGU",
+      "hk": "8262",
+      "sgp": "1927",
+      "sdy": "0196",
+      "source": "user-provided sample; pending automated source validation"
+    },
+    {
+      "date": "2026-10-17",
+      "day": "SABTU",
+      "hk": "5379",
+      "sgp": "4094",
+      "sdy": "5174",
+      "source": "user-provided sample; pending automated source validation"
+    },
+    {
+      "date": "2026-10-16",
+      "day": "JUMAT",
+      "hk": "6297",
+      "sgp": "-",
+      "sdy": "7838",
+      "source": "user-provided sample; pending automated source validation"
+    }
+  ]
 }
