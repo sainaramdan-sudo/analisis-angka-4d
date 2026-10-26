@@ -25,9 +25,9 @@ MONTHS = {
 WEEKDAYS = ["SENIN", "SELASA", "RABU", "KAMIS", "JUMAT", "SABTU", "MINGGU"]
 
 def clean(raw):
-    raw = re.sub(r"<script\\b[^>]*>.*?</script>", " ", raw, flags=re.I | re.S)
-    raw = re.sub(r"<style\\b[^>]*>.*?</style>", " ", raw, flags=re.I | re.S)
-    return re.sub(r"\\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", raw))).strip()
+    raw = re.sub(r"<script\b[^>]*>.*?</script>", " ", raw, flags=re.I | re.S)
+    raw = re.sub(r"<style\b[^>]*>.*?</style>", " ", raw, flags=re.I | re.S)
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", raw))).strip()
 
 def fetch(url):
     req = urllib.request.Request(url, headers={
@@ -43,11 +43,14 @@ def fetch(url):
         return raw.decode("utf-8", "replace")
 
 def parse_date(raw):
-    match = re.search(r"(?<!\\d)(\\d{1,2})[-/](\\d{1,2})[-/](\\d{4})(?!\\d)", raw)
+    match = re.search(r"(?<!\d)(\d{1,2})[-/](\d{1,2})[-/](\d{4})(?!\d)", raw)
     if match:
         day, month, year = map(int, match.groups())
-        return dt.date(year, month, day)
-    match = re.search(r"(?:Senin|Selasa|Rabu|Kamis|Jumat|Sabtu|Minggu)?\\s*,?\\s*(\\d{1,2})\\s+([A-Za-z]+)\\s+(\\d{4})", raw, re.I)
+        try:
+            return dt.date(year, month, day)
+        except ValueError:
+            return None
+    match = re.search(r"(?:Senin|Selasa|Rabu|Kamis|Jumat|Sabtu|Minggu)?\s*,?\s*(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})", raw, re.I)
     if not match:
         return None
     day, month_name, year = match.groups()
@@ -60,14 +63,15 @@ def parse_date(raw):
         return None
 
 def parse(page, today, source):
-    tables = re.findall(r"<table\\b[^>]*>(.*?)</table>", page, re.I | re.S)
+    tables = re.findall(r"<table\b[^>]*>(.*?)</table>", page, re.I | re.S)
     rows_by_date = {}
     for table in tables:
         rows = []
-        for tr in re.findall(r"<tr\\b[^>]*>(.*?)</tr>", table, re.I | re.S):
-            cells = re.findall(r"<t[dh]\\b[^>]*>(.*?)</t[dh]>", tr, re.I | re.S)
+        for tr in re.findall(r"<tr\b[^>]*>(.*?)</tr>", table, re.I | re.S):
+            cells = re.findall(r"<t[dh]\b[^>]*>(.*?)</t[dh]>", tr, re.I | re.S)
             rows.append([clean(c) for c in cells])
-        header_index, indices = None, {}
+        indices = {}
+        header_index = None
         for i, cells in enumerate(rows):
             headers = [re.sub(r"[^A-Z]", "", c.upper()) for c in cells]
             date_idx = next((j for j, h in enumerate(headers) if h in ("TANGGAL", "HARITANGGAL", "TANGGALHARI")), None)
@@ -85,10 +89,10 @@ def parse(page, today, source):
             if not date_obj or date_obj > today or date_obj < today - dt.timedelta(days=1100):
                 continue
             def result(name):
-                val = re.sub(r"\\s+", "", cells[indices[name]]).strip()
+                val = re.sub(r"\s+", "", cells[indices[name]]).strip()
                 if val in ("-", "—", "–", ""):
                     return "-"
-                return val if re.fullmatch(r"\\d{4}", val) else None
+                return val if re.fullmatch(r"\d{4}", val) else None
             values = {key: result(key) for key in ("HK", "SGP", "SDY")}
             if any(value is None for value in values.values()):
                 continue
@@ -134,10 +138,10 @@ def main():
             "results": results,
         }
         OUT.parent.mkdir(parents=True, exist_ok=True)
-        OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+        OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print("All sources failed; prior records retained:", len(results))
         raise SystemExit("Source update failed; prior data retained, see errors above")
-    # Only replace dates actually present in the newly validated source; preserve all other history.
+    # Replace only dates returned by the validated source; preserve all other history.
     history = {item.get("date"): item for item in previous.get("results", []) if item.get("date")}
     for item in fresh:
         history[item["date"]] = item
@@ -151,7 +155,7 @@ def main():
         "results": results,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+    OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("Source:", selected_source, "| status: source-table-parsed | fresh records:", len(fresh), "| total records:", len(results), "| fallback errors:", errors)
 
 if __name__ == "__main__":
