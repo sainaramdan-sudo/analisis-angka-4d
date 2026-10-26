@@ -14,9 +14,9 @@ OUT = ROOT / "data" / "hk4d.json"
 SOURCE = "https://togel-hongkong.org/"
 
 def clean(raw):
-    raw = re.sub(r"<script\\b[^>]*>.*?</script>", " ", raw, flags=re.I | re.S)
-    raw = re.sub(r"<style\\b[^>]*>.*?</style>", " ", raw, flags=re.I | re.S)
-    return re.sub(r"\\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", raw))).strip()
+    raw = re.sub(r"<script\b[^>]*>.*?</script>", " ", raw, flags=re.I | re.S)
+    raw = re.sub(r"<style\b[^>]*>.*?</style>", " ", raw, flags=re.I | re.S)
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", raw))).strip()
 
 def fetch():
     req = urllib.request.Request(SOURCE, headers={"User-Agent": "Mozilla/5.0 (compatible; HK4D-history-monitor/1.0)"})
@@ -29,13 +29,13 @@ def fetch():
         return raw.decode("utf-8", "replace")
 
 def parse(page, today):
-    tables = re.findall(r"<table\\b[^>]*>(.*?)</table>", page, re.I | re.S)
+    tables = re.findall(r"<table\b[^>]*>(.*?)</table>", page, re.I | re.S)
     rows_by_date = {}
     weekdays = ["SENIN", "SELASA", "RABU", "KAMIS", "JUMAT", "SABTU", "MINGGU"]
     for table in tables:
         rows = []
-        for tr in re.findall(r"<tr\\b[^>]*>(.*?)</tr>", table, re.I | re.S):
-            cells = re.findall(r"<t[dh]\\b[^>]*>(.*?)</t[dh]>", tr, re.I | re.S)
+        for tr in re.findall(r"<tr\b[^>]*>(.*?)</tr>", table, re.I | re.S):
+            cells = re.findall(r"<t[dh]\b[^>]*>(.*?)</t[dh]>", tr, re.I | re.S)
             rows.append([clean(c) for c in cells])
         header_index = None
         indices = {}
@@ -52,7 +52,7 @@ def parse(page, today):
         for cells in rows[header_index + 1:]:
             try:
                 raw_date = cells[indices["TANGGAL"]]
-                match = re.search(r"(?<!\\d)(\\d{2})[-/](\\d{2})[-/](\\d{4})(?!\\d)", raw_date)
+                match = re.search(r"(?<!\d)(\d{2})[-/](\d{2})[-/](\d{4})(?!\d)", raw_date)
                 if not match:
                     continue
                 day, month, year = map(int, match.groups())
@@ -63,7 +63,7 @@ def parse(page, today):
                     val = cells[indices[name]].strip()
                     if val == "-" or val == "—":
                         return "-"
-                    return val if re.fullmatch(r"\\d{4}", val) else None
+                    return val if re.fullmatch(r"\d{4}", val) else None
                 hk, sgp, sdy = result("HK"), result("SGP"), result("SDY")
                 if None in (hk, sgp, sdy):
                     continue
@@ -114,7 +114,7 @@ def main():
         "results": results,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+    OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("Source:", SOURCE, "| status:", status, "| records:", len(results), "| errors:", errors)
     if errors:
         raise SystemExit("Source update failed; prior data retained, see error above")
