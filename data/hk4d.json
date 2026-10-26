@@ -1,8 +1,8 @@
 {
-  "updated_at": null,
-  "source": "https://togel-hongkong.org/",
-  "source_type": "Third-party website; not verified as an official lottery source",
-  "status": "awaiting-first-automatic-run",
+  "updated_at": "2026-10-26T09:22:10.543261+07:00",
+  "source": "https://livehksdy.com/riwayat/index.php/",
+  "source_type": "third-party website; not verified as an official source",
+  "status": "source-table-parsed",
   "errors": {},
   "results": [
     {
@@ -11,7 +11,7 @@
       "hk": "5480",
       "sgp": "1221",
       "sdy": "6241",
-      "source": "user-provided sample; pending automated source validation"
+      "source": "https://livehksdy.com/riwayat/index.php/"
     },
     {
       "date": "2026-10-24",
@@ -19,7 +19,7 @@
       "hk": "1269",
       "sgp": "3837",
       "sdy": "7606",
-      "source": "user-provided sample; pending automated source validation"
+      "source": "https://livehksdy.com/riwayat/index.php/"
     },
     {
       "date": "2026-10-23",
@@ -27,7 +27,7 @@
       "hk": "3581",
       "sgp": "-",
       "sdy": "7069",
-      "source": "user-provided sample; pending automated source validation"
+      "source": "https://livehksdy.com/riwayat/index.php/"
     },
     {
       "date": "2026-10-22",
@@ -35,7 +35,7 @@
       "hk": "5096",
       "sgp": "2718",
       "sdy": "0031",
-      "source": "user-provided sample; pending automated source validation"
+      "source": "https://livehksdy.com/riwayat/index.php/"
     },
     {
       "date": "2026-10-21",
@@ -43,7 +43,7 @@
       "hk": "8280",
       "sgp": "8455",
       "sdy": "3426",
-      "source": "user-provided sample; pending automated source validation"
+      "source": "https://livehksdy.com/riwayat/index.php/"
     },
     {
       "date": "2026-10-20",
@@ -51,7 +51,7 @@
       "hk": "3778",
       "sgp": "-",
       "sdy": "6274",
-      "source": "user-provided sample; pending automated source validation"
+      "source": "https://livehksdy.com/riwayat/index.php/"
     },
     {
       "date": "2026-10-19",
@@ -59,7 +59,7 @@
       "hk": "8385",
       "sgp": "4799",
       "sdy": "6468",
-      "source": "user-provided sample; pending automated source validation"
+      "source": "https://livehksdy.com/riwayat/index.php/"
     },
     {
       "date": "2026-10-18",
@@ -67,7 +67,7 @@
       "hk": "8262",
       "sgp": "1927",
       "sdy": "0196",
-      "source": "user-provided sample; pending automated source validation"
+      "source": "https://livehksdy.com/riwayat/index.php/"
     },
     {
       "date": "2026-10-17",
@@ -75,7 +75,7 @@
       "hk": "5379",
       "sgp": "4094",
       "sdy": "5174",
-      "source": "user-provided sample; pending automated source validation"
+      "source": "https://livehksdy.com/riwayat/index.php/"
     },
     {
       "date": "2026-10-16",
@@ -83,7 +83,87 @@
       "hk": "6297",
       "sgp": "-",
       "sdy": "7838",
-      "source": "user-provided sample; pending automated source validation"
+      "source": "https://livehksdy.com/riwayat/index.php/"
+    },
+    {
+      "date": "2026-10-15",
+      "day": "KAMIS",
+      "hk": "7345",
+      "sgp": "0314",
+      "sdy": "3184",
+      "source": "https://livehksdy.com/riwayat/index.php/"
+    },
+    {
+      "date": "2026-10-14",
+      "day": "RABU",
+      "hk": "3967",
+      "sgp": "0300",
+      "sdy": "9804",
+      "source": "https://livehksdy.com/riwayat/index.php/"
+    },
+    {
+      "date": "2026-10-13",
+      "day": "SELASA",
+      "hk": "5805",
+      "sgp": "-",
+      "sdy": "9013",
+      "source": "https://livehksdy.com/riwayat/index.php/"
+    },
+    {
+      "date": "2026-10-12",
+      "day": "SENIN",
+      "hk": "6754",
+      "sgp": "9450",
+      "sdy": "0157",
+      "source": "https://livehksdy.com/riwayat/index.php/"
+    },
+    {
+      "date": "2026-10-11",
+      "day": "MINGGU",
+      "hk": "2615",
+      "sgp": "2588",
+      "sdy": "2895",
+      "source": "https://livehksdy.com/riwayat/index.php/"
+    },
+    {
+      "date": "2026-10-10",
+      "day": "SABTU",
+      "hk": "3534",
+      "sgp": "2075",
+      "sdy": "2331",
+      "source": "https://livehksdy.com/riwayat/index.php/"
+    },
+    {
+      "date": "2026-10-09",
+      "day": "JUMAT",
+      "hk": "6469",
+      "sgp": "-",
+      "sdy": "6915",
+      "source": "https://livehksdy.com/riwayat/index.php/"
+    },
+    {
+      "date": "2026-10-08",
+      "day": "KAMIS",
+      "hk": "8270",
+      "sgp": "2855",
+      "sdy": "5814",
+      "source": "https://livehksdy.com/riwayat/index.php/"
+    },
+    {
+      "date": "2026-10-07",
+      "day": "RABU",
+      "hk": "6196",
+      "sgp": "9838",
+      "sdy": "0569",
+      "source": "https://livehksdy.com/riwayat/index.php/"
+    },
+    {
+      "date": "2026-10-06",
+      "day": "SELASA",
+      "hk": "3268",
+      "sgp": "-",
+      "sdy": "3398",
+      "source": "https://livehksdy.com/riwayat/index.php/"
     }
   ]
 }
