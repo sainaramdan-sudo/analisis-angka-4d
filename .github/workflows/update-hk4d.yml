@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Fetch and validate togel-hongkong.org table
+      - name: Fetch and validate primary archive with fallback source
         run: python scripts/update_hk4d.py
       - name: Commit data if changed
         run: |
