@@ -140,7 +140,7 @@ def main():
         OUT.parent.mkdir(parents=True, exist_ok=True)
         OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print("All sources failed; prior records retained:", len(results))
-        raise SystemExit("Source update failed; prior data retained, see errors above")
+        return  # Persist failure status while retaining previous validated results
     # Replace only dates returned by the validated source; preserve all other history.
     history = {item.get("date"): item for item in previous.get("results", []) if item.get("date")}
     for item in fresh:
