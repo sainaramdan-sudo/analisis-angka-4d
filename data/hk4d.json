@@ -1,10 +1,18 @@
 {
-  "updated_at": "2026-10-26T09:22:10.543261+07:00",
+  "updated_at": "2026-10-26T23:58:14.136504+07:00",
   "source": "https://livehksdy.com/riwayat/index.php/",
   "source_type": "third-party website; not verified as an official source",
   "status": "source-table-parsed",
   "errors": {},
   "results": [
+    {
+      "date": "2026-10-26",
+      "day": "SENIN",
+      "hk": "9532",
+      "sgp": "4502",
+      "sdy": "5017",
+      "source": "https://livehksdy.com/riwayat/index.php/"
+    },
     {
       "date": "2026-10-25",
       "day": "MINGGU",
